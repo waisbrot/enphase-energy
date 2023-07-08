@@ -1,0 +1,16 @@
+[package]
+name = "enphase-telegraf"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+base64 = "0.21.2"
+chrono = { version = "0.4.26", features = ["serde"] }
+chrono-tz = "0.8.3"
+clap = { version = "4.3.10", features = ["derive"] }
+http-auth = "0.1.8"
+serde = { version = "1.0.166", features = ["derive"] }
+serde_json = "1.0.100"
+ureq = { version = "2.7.1", features = ["json"] }
