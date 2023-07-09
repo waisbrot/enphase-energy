@@ -1,0 +1,23 @@
+---
+name: Rust-publish
+
+on:
+    release:
+        types: [created]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  release:
+    name: release x86_64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Rust Release binary
+        uses: rust-build/rust-build.action@v1.4.3
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            RUSTTARGET: x86_64-unknown-linux-musl
+            ARCHIVE_TYPES: tgz
