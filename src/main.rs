@@ -198,7 +198,7 @@ fn home_to_influx(home: HomeResponse) {
         )
         .unwrap();
     println!(
-        "device_time_skew, device_timestamp={} {}",
+        "device_time_skew device_timestamp={} {}",
         device_datetime.timestamp_nanos(),
         timestamp_nano
     );
