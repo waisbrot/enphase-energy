@@ -168,16 +168,16 @@ fn home_to_influx(home: HomeResponse) {
     let now = SystemTime::now();
     let timestamp_nano = now.duration_since(UNIX_EPOCH).unwrap().as_nanos();
     println!(
-        "software_build_date, value={} {}",
+        "software_build_date value={} {}",
         home.software_build_epoch.timestamp_nanos(),
         timestamp_nano
     );
     println!(
-        "database, total_size={},percent_full={} {}",
+        "database total_size={},percent_full={} {}",
         home.db_size, home.db_percent_full, timestamp_nano
     );
     println!(
-        "phone_home, update_status={},alerts={},last_report={} {}",
+        "phone_home update_status={},alerts={},last_report={} {}",
         home.update_status,
         home.alerts,
         home.network.last_enlighten_report_time.timestamp_nanos(),
@@ -202,7 +202,7 @@ fn home_to_influx(home: HomeResponse) {
         device_datetime.timestamp_nanos(),
         timestamp_nano
     );
-    println!("comm, number={},level={} {}", home.comm.num, home.comm.level, timestamp_nano);
+    println!("comm number={},level={} {}", home.comm.num, home.comm.level, timestamp_nano);
 }
 
 fn get_inverters(agent: &Agent, url: &String) -> Vec<InvertersResponse> {
