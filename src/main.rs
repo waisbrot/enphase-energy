@@ -177,7 +177,7 @@ fn home_to_influx(home: HomeResponse) {
         home.db_size, home.db_percent_full, timestamp_nano
     );
     println!(
-        "phone_home update_status={},alerts={},last_report={} {}",
+        "phone_home update_status=\"{}\",alerts={},last_report={} {}",
         home.update_status,
         home.alerts,
         home.network.last_enlighten_report_time.timestamp_nanos(),
@@ -218,7 +218,7 @@ fn inverters_to_influx(inverters: Vec<InvertersResponse>) {
     let timestamp_nano = now.duration_since(UNIX_EPOCH).unwrap().as_nanos();
     for inverter in &inverters {
         println!(
-            "inverter,serial_number={} last_report={},last_watts={},max_watts={} {}",
+            "inverter,serial_number=\"{}\" last_report={},last_watts={},max_watts={} {}",
             inverter.serial_number,
             inverter.last_report_date.timestamp_nanos(),
             inverter.last_report_watts,
